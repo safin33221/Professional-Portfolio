@@ -12,7 +12,7 @@ function App() {
           <Hero />
         </div>
         <About />
-        <Experience />
+        {/* <Experience /> */}
         <Tech />
         <Works />
         <Feedbacks />

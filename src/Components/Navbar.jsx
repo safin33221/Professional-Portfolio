@@ -10,7 +10,7 @@ import { useState } from "react";
 const Navbar = () => {
     const [active, setActive] = useState("");
     const [toggle, setToggle] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
+    // const [scrolled, setScrolled] = useState(false);
 
     return (
         <nav
