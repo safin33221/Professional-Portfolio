@@ -3,6 +3,7 @@ import { fadeIn } from "../utils/motion"
 import { styles } from "../styles"
 import { services } from "../constanse"
 import { Tilt } from "react-tilt"
+import StarWrapper from "../Hook/StarWrapper"
 
 const About = () => {
   return (
@@ -50,4 +51,4 @@ const About = () => {
   )
 }
 
-export default About
+export default StarWrapper(About, "about");

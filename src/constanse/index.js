@@ -237,7 +237,7 @@ const projects = [
         ],
         image: sportstore,
         source_code_link: "https://github.com/safin33221/Sports-Equipment-Store-Client-Side",
-        live_site_link: "https://sports-equipment-store-7f46d.web.app"
+        live_page_link: "https://sports-equipment-store-7f46d.web.app"
     },
 
 

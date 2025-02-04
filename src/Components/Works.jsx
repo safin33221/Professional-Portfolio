@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { fadeIn } from "../utils/motion"; 
 import github  from "../assets/github.png";
 import link  from "../assets/link.svg";
+import StarWrapper from "../Hook/StarWrapper";
 
 const Works = () => {
   return (
@@ -16,14 +17,14 @@ const Works = () => {
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-10 gap-5 px-3'>
         {
           projects.map((project, index) => 
-            <motion.div key={index} variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+            <div key={index} variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
               <Tilt
                 options={{
                   max: 45,
                   scale: 1,
                   speed: 450,
                 }}
-                className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full mx-auto'
+                className='bg-tertiary p-5 h-full rounded-2xl sm:w-[360px] w-full mx-auto'
               >
                 <div className='relative w-full h-[230px]'>
                   <img
@@ -44,7 +45,7 @@ const Works = () => {
                       />
                     </div>
                     <div
-                      onClick={() => window.open(project.source_code_link, "_blank")}
+                      onClick={() => window.open(project.live_page_link, "_blank")}
                       className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
                     >
                       <img
@@ -72,7 +73,7 @@ const Works = () => {
                   ))}
                 </div>
               </Tilt>
-            </motion.div>
+            </div>
           )
         }
       </div>
@@ -80,4 +81,4 @@ const Works = () => {
   )
 }
 
-export default Works;
+export default StarWrapper(Works, "work");

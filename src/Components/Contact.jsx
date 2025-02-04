@@ -1,18 +1,52 @@
 
-
+import emailjs from "@emailjs/browser";
 import { styles } from '../styles'
 import { MdEmail } from 'react-icons/md'
 import { FaGithub, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
 import { FaLocationDot } from 'react-icons/fa6'
+import StarWrapper from '../Hook/StarWrapper'
+import { useState } from "react";
+import Swal from "sweetalert2";
+
 
 const Contact = () => {
+  const [loading, setLoading] = useState(false)
+  const handleSubmit = e => {
+    e.preventDefault()
+    setLoading(true)
+    const name = e.target.name.value
+    const email = e.target.email.value
+    const message = e.target.message.value
+    emailjs.send(import.meta.env.VITE_EmailJs_service_Id,
+      import.meta.env.VITE_EmailJs_templete_Id, {
+      from_name: name,
+      to_name: "Safayet Hossan Safin",
+      from_email: email,
+      to_email: "safin33221@gmail.com",
+      message: message,
+    },
+      import.meta.env.VITE_EmailJs_public_key
+    )
+      .then(res => {
+        if (res.text === 'OK') {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Thank you. I will get back to you as soon as possible.",
+            showConfirmButton: false,
+            timer: 1000
+          });
+          e.target.reset()
+        }
+      })
+  }
   return (
     <div
 
     >
       <div className='text-center'>
         <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={styles.sectionHeadText}>Contact.</h3>
+        <h3 className={styles.sectionHeadText}>Contact</h3>
       </div>
 
       <div className={`p-2 md:px-10 md:flex gap-10 `}>
@@ -46,12 +80,13 @@ const Contact = () => {
 
 
           <form
-            // ref={formRef}
-            // onSubmit={handleSubmit}
-            className='mt-12 flex flex-col gap-8 m-4 pt-5'
+
+            onSubmit={handleSubmit}
+            className='mt-12 flex flex-col gap-8 mx-4 '
           >
+            <h1 className={styles.sectionSubText}>Send me email</h1>
             <label className='flex flex-col'>
-              <span className='text-white font-medium mb-4'>Your Name</span>
+              <span className='text-white font-medium mb-2'>Your Name</span>
               <input
                 type='text'
                 name='name'
@@ -62,7 +97,7 @@ const Contact = () => {
               />
             </label>
             <label className='flex flex-col'>
-              <span className='text-white font-medium mb-4'>Your email</span>
+              <span className='text-white font-medium mb-2'>Your email</span>
               <input
                 type='email'
                 name='email'
@@ -73,7 +108,7 @@ const Contact = () => {
               />
             </label>
             <label className='flex flex-col'>
-              <span className='text-white font-medium mb-4'>Your Message</span>
+              <span className='text-white font-medium mb-2'>Your Message</span>
               <textarea
                 rows={3}
                 name='message'
@@ -99,5 +134,4 @@ const Contact = () => {
     </div>
   )
 }
-
-export default Contact
+export default StarWrapper(Contact, "contact");
