@@ -9,11 +9,11 @@ import link  from "../assets/link.svg";
 const Works = () => {
   return (
     <div>
-      <div className="text-center mt-20">
+      <div className="text-center ">
         <p className={styles.sectionSubText}> My Projects</p>
         <h2 className={styles.sectionHeadText}>A Glimpse of My Development Journey</h2>
       </div>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-10'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-10 gap-5 px-3'>
         {
           projects.map((project, index) => 
             <motion.div key={index} variants={fadeIn("up", "spring", index * 0.5, 0.75)}>

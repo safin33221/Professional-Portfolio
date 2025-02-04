@@ -6,7 +6,7 @@ import { Tilt } from "react-tilt"
 
 const About = () => {
   return (
-    <div className=" w-full mx-auto">
+    <div className=" w-full mx-auto px-10">
       <>
         <div className="text-center" >
           <p className={styles.sectionSubText}>Introduction</p>

@@ -21,7 +21,7 @@ import {
     shopify,
     restaurant,
     sportstore,
-    tripguide,
+    
     health
 
 } from "../assets";
